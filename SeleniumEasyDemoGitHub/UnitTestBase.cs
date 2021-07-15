@@ -32,8 +32,11 @@ namespace SeleniumEasyDemo
         {
             var isEachElementDisplayed = element.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
             Assert.IsTrue(isEachElementDisplayed.Displayed, $"nameof{isEachElementDisplayed} was not displayed");
-
-
+        }
+        public void CollectionElement(IReadOnlyCollection<IWebElement> element)
+        {
+            var isEachElementDisplayed = element.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
+            Assert.IsTrue(isEachElementDisplayed.Displayed, $"nameof{isEachElementDisplayed} was not displayed.");
         }
 
     }
