@@ -66,6 +66,7 @@
     <Compile Include="InputForms\SimpleFormDemoUnitTestPO.cs" />
     <Compile Include="UnitTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestBasePO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
