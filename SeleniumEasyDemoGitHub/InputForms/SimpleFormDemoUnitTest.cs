@@ -12,7 +12,8 @@ namespace SeleniumEasyDemo.InputForms
         {
             var simpleForm = new SimpleFormDemoUnitTestPO(driver);
             var labelsElementList = new List<IWebElement> { simpleForm.EnterMessageLabel, simpleForm.YourMessageLabel };
-            ElementList(labelsElementList);
+            var labelListString = new List<string>() { "Enter message", "Your Message:" };
+            ElementList(labelsElementList, labelListString);
             if (simpleForm.ImageDarkener.Displayed)
             {
                 simpleForm.ImageCloseButton.Click();
@@ -35,9 +36,10 @@ namespace SeleniumEasyDemo.InputForms
         public void TwoInputFieldUnitTest()
         {
             var simpleForm = new SimpleFormDemoUnitTestPO(driver);
-            List<IWebElement> twoInputLabels = new List<IWebElement> { simpleForm.EnteraLabel,
+            List<IWebElement> twoInputLabelsElement = new List<IWebElement> { simpleForm.EnteraLabel,
                 simpleForm.EnterbLabel, simpleForm.TotalLabel};
-            ElementList(twoInputLabels);
+            var twoInputLabelsString = new List<string>() { "Enter a", "Enter b", "Total a + b =" };
+            ElementList(twoInputLabelsElement, twoInputLabelsString);
             if (simpleForm.ImageDarkener.Displayed)
             {
                 simpleForm.ImageCloseButton.Click();
@@ -52,7 +54,7 @@ namespace SeleniumEasyDemo.InputForms
             simpleForm.InputB.SendKeys(b.ToString());
             var sum = a + b;
             simpleForm.GetTotalButton.Click();
-            Assert.AreEqual(sum.ToString(), simpleForm.DisplayValue.Text, $"nameof{simpleForm.DisplayValue} was not displayed.");
+            Assert.AreEqual(sum.ToString(), simpleForm.DisplayValue.Text, $"{nameof(simpleForm.DisplayValue)} was not displayed.");
         }
     }
 }

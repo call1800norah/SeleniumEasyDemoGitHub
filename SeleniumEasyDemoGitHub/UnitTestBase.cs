@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,15 +29,43 @@ namespace SeleniumEasyDemo
         {
             driver.Quit();
         }
-        public void ElementList(List<IWebElement> element)
+        public void ElementList(List<IWebElement> webElement, List<string> stringElement)
         {
-            var isEachElementDisplayed = element.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
-            Assert.IsTrue(isEachElementDisplayed.Displayed, $"nameof{isEachElementDisplayed} was not displayed");
+            var isEachElementDisplayed = webElement.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
+            Assert.IsTrue(isEachElementDisplayed.Displayed, $"{nameof(isEachElementDisplayed)} was not displayed");
+            CompareWebElementListToStringList(webElement, stringElement);
+            
+
         }
-        public void CollectionElement(IReadOnlyCollection<IWebElement> element)
+        public void CollectionElement(ReadOnlyCollection<IWebElement> webElement, List<string> stringElement)
         {
-            var isEachElementDisplayed = element.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
-            Assert.IsTrue(isEachElementDisplayed.Displayed, $"nameof{isEachElementDisplayed} was not displayed.");
+            var isEachElementDisplayed = webElement.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
+            Assert.IsTrue(isEachElementDisplayed.Displayed, $"{nameof(isEachElementDisplayed)} was not displayed.");
+            CompareWebElementCollectionToStringList(webElement, stringElement);
+        }
+        public void CompareWebElementCollectionToStringList(ReadOnlyCollection<IWebElement> webElement, List<string> stringElement)
+        {
+            int i = 0;
+            foreach (string item in stringElement)
+            {
+                Assert.IsTrue(item.Equals(webElement[i].Text.Trim()), $"{nameof(CompareWebElementCollectionToStringList)}failed" +
+                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'.");
+
+            }
+        }
+        public void CompareWebElementListToStringList(List<IWebElement> webElement, List<string> stringElement)
+        {
+            int i = 0;
+            foreach (string item in stringElement)
+            {
+                Assert.IsTrue(item.Equals(webElement[i].Text.Trim()), $"{nameof(CompareWebElementListToStringList)}failed" +
+                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'.");
+            }
+        }
+
+        public void MenuList(string menuName)
+        {
+
         }
 
     }

@@ -19,6 +19,8 @@ namespace SeleniumEasyDemoGitHub.InputForms
         public IWebElement SingleCheckboxHeader => _driver.FindElement(By.XPath("//div[@class='panel-heading' and text()='Single Checkbox Demo']"));
         public IWebElement SingleCheckboxMessage => _driver.FindElement(By.XPath("//div[@class='panel-body']//p[text()=' Clicking on the checkbox will display a success message. Keep an eye on it']"));
         public IWebElement SingleCheckboxClick => _driver.FindElement(By.XPath("//input[@id='isAgeSelected']"));
+        public IWebElement CheckboxCheckedMessage => _driver.FindElement(By.XPath("//div[@id='txtAge']"));
+
         //Multiple checkbox Demo
         public IWebElement MultiCheckboxHeader => _driver.FindElement(By.XPath("//div[@class='panel-heading' and text()='Multiple Checkbox Demo']"));
         public IWebElement MultiCheckboxMessage => _driver.FindElement(By.XPath("//div[@class='panel-body']//p[text()='Check the below points before automating']"));
