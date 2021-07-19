@@ -13,7 +13,7 @@ namespace SeleniumEasyDemo.InputForms
             var simpleForm = new SimpleFormDemoUnitTestPO(driver);
             var labelsElementList = new List<IWebElement> { simpleForm.EnterMessageLabel, simpleForm.YourMessageLabel };
             var labelListString = new List<string>() { "Enter message", "Your Message:" };
-            ElementList(labelsElementList, labelListString);
+            VerifyElementList(labelsElementList, labelListString);
             if (simpleForm.ImageDarkener.Displayed)
             {
                 simpleForm.ImageCloseButton.Click();
@@ -39,7 +39,7 @@ namespace SeleniumEasyDemo.InputForms
             List<IWebElement> twoInputLabelsElement = new List<IWebElement> { simpleForm.EnteraLabel,
                 simpleForm.EnterbLabel, simpleForm.TotalLabel};
             var twoInputLabelsString = new List<string>() { "Enter a", "Enter b", "Total a + b =" };
-            ElementList(twoInputLabelsElement, twoInputLabelsString);
+            VerifyElementList(twoInputLabelsElement, twoInputLabelsString);
             if (simpleForm.ImageDarkener.Displayed)
             {
                 simpleForm.ImageCloseButton.Click();

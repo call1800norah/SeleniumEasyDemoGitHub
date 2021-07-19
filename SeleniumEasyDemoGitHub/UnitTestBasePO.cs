@@ -19,7 +19,8 @@ namespace SeleniumEasyDemoGitHub
         public IWebElement MenuListHeader => _driver.FindElement(By.XPath("//div[@class='col-md-3 sidenav']//div[@class='panel-heading']"));
         public IWebElement AllExamplesNavBar => _driver.FindElement(By.XPath("//ul[@id='treemenu']//a[@href='#' and text()='All Examples']"));
         public IWebElement InputFormsNavBar => _driver.FindElement(By.XPath("//ul[@id='treemenu']//a[@href='#' and text()='Input Forms']"));
-        public ReadOnlyCollection<IWebElement> InputFormsItems => _driver.FindElements(By.XPath("//li[@class='tree-branch']//a[@href='#' and text()='Input Forms']//following::ul//li[@style='display: list-item;']"));
+        public ReadOnlyCollection<IWebElement> InputFormsItems => _driver.FindElements
+            (By.XPath("//li[@class='tree-branch']//a[@href='#' and text()='Input Forms']//following::ul//li[@style='display: list-item;']/a"));
 
 
     }
