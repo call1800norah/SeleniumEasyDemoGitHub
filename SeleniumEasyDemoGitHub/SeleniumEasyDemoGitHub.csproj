@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputForms\CheckboxUnitTestPO.cs" />
+    <Compile Include="InputForms\CheckboxDemoUnitTestPO.cs" />
     <Compile Include="InputForms\CheckboxDemoUnitTest.cs" />
+    <Compile Include="InputForms\RadioButtonsDemoUnitTest.cs" />
+    <Compile Include="InputForms\RadioButtonsDemoUnitTestPO.cs" />
     <Compile Include="InputForms\SimpleFormDemoUnitTest.cs" />
     <Compile Include="InputForms\SimpleFormDemoUnitTestPO.cs" />
     <Compile Include="UnitTestBase.cs" />

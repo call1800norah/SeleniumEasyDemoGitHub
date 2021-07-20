@@ -51,7 +51,7 @@ namespace SeleniumEasyDemo
             foreach (string item in stringElement)
             {
                 Assert.IsTrue(item.Equals(webElement[i].Text.Trim()), $"{nameof(CompareWebElementCollectionToStringList)}failed" +
-                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'.");
+                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'");
                 i++;
 
             }
@@ -62,7 +62,7 @@ namespace SeleniumEasyDemo
             foreach (string item in stringElement)
             {
                 Assert.IsTrue(item.Equals(webElement[i].Text.Trim()), $"{nameof(CompareWebElementListToStringList)}failed" +
-                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'");
+                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'.");
                 i++;
             }
         }
