@@ -13,35 +13,16 @@ namespace SeleniumEasyDemoGitHub.InputForms
     [TestClass]
     public class CheckboxDemoUnitTest : UnitTestBase
     {
-        private CheckboxUnitTestPO checkboxUnitTestPO;
-        private SimpleFormDemoUnitTestPO simpleFormDemoUnitTestPO;
-        private WebDriverWait wait;
+        private CheckboxDemoUnitTestPO checkboxUnitTestPO;
+        
         [TestMethod]
         public void SingleCheckboxDemo()
         {
-            checkboxUnitTestPO = new CheckboxUnitTestPO(driver);
-            simpleFormDemoUnitTestPO = new SimpleFormDemoUnitTestPO(driver);
-            int timeoutInSeconds = 30;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));          
+            checkboxUnitTestPO = new CheckboxDemoUnitTestPO(driver);
            
-            if ((timeoutInSeconds <= 30) && (simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
-            {
-                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
-                MenuList("Checkbox Demo");
-                SingleCheckboxDemoMethod();
-            }
-            else if((timeoutInSeconds >= 30) && (!simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
-            {
-                Thread.Sleep(2000);
-                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
-                MenuList("Checkbox Demo");
-                SingleCheckboxDemoMethod();
-            }
-            else
-            {
-                MenuList("Checkbox Demo");
-                SingleCheckboxDemoMethod();
-            }
+            ImageCloseMethod("Checkbox Demo");
+            SingleCheckboxDemoMethod();
+          
             checkboxUnitTestPO.SingleCheckboxClick.Click();
             Assert.AreEqual("Success - Check box is checked", checkboxUnitTestPO.CheckboxCheckedMessage.Text);
   
@@ -56,31 +37,14 @@ namespace SeleniumEasyDemoGitHub.InputForms
         [TestMethod]
         public void MultiCheckboxDemo()
         {
-            checkboxUnitTestPO = new CheckboxUnitTestPO(driver);
-            simpleFormDemoUnitTestPO = new SimpleFormDemoUnitTestPO(driver);
-            int timeoutInSeconds = 30;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-            if ((timeoutInSeconds <= 30) && (simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
-            {
-                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
-                MenuList("Checkbox Demo");
-                MultipleCheckboxDemoMethod();
-
-            }
-            else if((timeoutInSeconds >= 30) && (!simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
-            {
-                Thread.Sleep(2000);
-                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
-                MenuList("Checkbox Demo");
-                MultipleCheckboxDemoMethod();
-            }
-            else
-            {
-                MenuList("Checkbox Demo");
-                MultipleCheckboxDemoMethod();
-            }         
+            checkboxUnitTestPO = new CheckboxDemoUnitTestPO(driver);
+            ImageCloseMethod("Checkbox Demo");
+            MultipleCheckboxDemoMethod();
+           
             checkboxUnitTestPO.CheckAllButton.Click();
-            checkboxUnitTestPO.UnCheckAllButton.Click();            
+            Assert.AreEqual("Uncheck All",checkboxUnitTestPO.UnCheckAllButton.Text.Trim());
+            checkboxUnitTestPO.UnCheckAllButton.Click();
+            Assert.AreEqual("Check All", checkboxUnitTestPO.UnCheckAllButton.Text.Trim());
         }
         public void MultipleCheckboxDemoMethod()
         {
@@ -91,6 +55,7 @@ namespace SeleniumEasyDemoGitHub.InputForms
             "When you check all the checkboxes, button will change to 'Uncheck All'", "When you uncheck at least one checkbox, button will change to 'Check All'"};
             VerifyElementCollection(checkboxUnitTestPO.CheckboxOptions, checkboxOptionString);
             VerifyElementCollection(checkboxUnitTestPO.MultiCheckboxMessages, multiCheckboxMessagesString);
+            
         }
     }
 }
