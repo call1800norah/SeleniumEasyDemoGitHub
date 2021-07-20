@@ -25,8 +25,10 @@ namespace SeleniumEasyDemoGitHub.InputForms
         public IWebElement MultiCheckboxHeader => _driver.FindElement(By.XPath("//div[@class='panel-heading' and text()='Multiple Checkbox Demo']"));
         public IWebElement MultiCheckboxMessage => _driver.FindElement(By.XPath("//div[@class='panel-body']//p[text()='Check the below points before automating']"));
         public ReadOnlyCollection<IWebElement> MultiCheckboxMessages => _driver.FindElements(By.XPath("//div[@class='col-md-6 text-left']//ul//li"));
-        public ReadOnlyCollection<IWebElement> CheckboxOptions => _driver.FindElements(By.XPath("//div[@class='checkbox']//input[@class='cb1-element']"));
+        public ReadOnlyCollection<IWebElement> CheckboxOptions => _driver.FindElements(By.XPath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div/label"));
         public IWebElement CheckAllButton => _driver.FindElement(By.XPath("//input[@id='check1' and @value='Check All']"));
+        public IWebElement UnCheckAllButton => _driver.FindElement(By.XPath("//input[@id='check1' and @value='Uncheck All']"));
+
 
     }
 }
