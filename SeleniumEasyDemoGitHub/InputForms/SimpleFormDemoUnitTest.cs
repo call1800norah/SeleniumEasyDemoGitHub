@@ -14,15 +14,8 @@ namespace SeleniumEasyDemo.InputForms
             var labelsElementList = new List<IWebElement> { simpleForm.EnterMessageLabel, simpleForm.YourMessageLabel };
             var labelListString = new List<string>() { "Enter message", "Your Message:" };
             VerifyElementList(labelsElementList, labelListString);
-            if (simpleForm.ImageDarkener.Displayed)
-            {
-                simpleForm.ImageCloseButton.Click();
-                InputMesssage("Hello Selenium");
-            }
-            else
-            {
-                InputMesssage("Hello Selenium");
-            }
+            ImageCloseMethod("Input Forms");
+            InputMesssage("Hello Selenium");
         }
 
         private void InputMesssage(string message)
@@ -40,12 +33,8 @@ namespace SeleniumEasyDemo.InputForms
                 simpleForm.EnterbLabel, simpleForm.TotalLabel};
             var twoInputLabelsString = new List<string>() { "Enter a", "Enter b", "Total a + b =" };
             VerifyElementList(twoInputLabelsElement, twoInputLabelsString);
-            if (simpleForm.ImageDarkener.Displayed)
-            {
-                simpleForm.ImageCloseButton.Click();
-                SumOfTwoNumbers(5, 6);
-            }
-
+            ImageCloseMethod("Input Forms");
+            SumOfTwoNumbers(5, 6);           
         }
         private void SumOfTwoNumbers(int a, int b)
         {

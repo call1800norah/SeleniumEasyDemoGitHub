@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace SeleniumEasyDemoGitHub.InputForms
 {
-    public class CheckboxUnitTestPO
+    public class CheckboxDemoUnitTestPO
     {
         public IWebDriver _driver;
-        public CheckboxUnitTestPO(IWebDriver driver)
+        public CheckboxDemoUnitTestPO(IWebDriver driver)
         {
             _driver = driver;
         }

@@ -2,12 +2,14 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
+using SeleniumEasyDemo.InputForms;
 using SeleniumEasyDemoGitHub;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SeleniumEasyDemo
@@ -17,6 +19,7 @@ namespace SeleniumEasyDemo
         public IWebDriver driver;
         public WebDriverWait wait;
         private UnitTestBasePO unitTestBasePO;
+        private SimpleFormDemoUnitTestPO simpleFormDemoUnitTestPO;
 
         [TestInitialize]
         public void SetupBrowser()
@@ -88,6 +91,28 @@ namespace SeleniumEasyDemo
                     break;
 
                 }
+            }
+        }
+        public void ImageCloseMethod(string menuName)
+        {
+            simpleFormDemoUnitTestPO = new SimpleFormDemoUnitTestPO(driver);
+            int timeoutInSeconds = 30;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+
+            if ((timeoutInSeconds <= 30) && (simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
+            {
+                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
+                MenuList(menuName);             
+            }
+            else if ((timeoutInSeconds >= 30) && (!simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
+            {
+                Thread.Sleep(2000);
+                simpleFormDemoUnitTestPO.ImageCloseButton.Click();
+                MenuList(menuName);             
+            }
+            else
+            {
+                MenuList(menuName);              
             }
         }
     }
