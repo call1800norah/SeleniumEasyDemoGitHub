@@ -60,12 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputForms\CheckboxDemoUnitTestPO.cs" />
-    <Compile Include="InputForms\CheckboxDemoUnitTest.cs" />
-    <Compile Include="InputForms\RadioButtonsDemoUnitTest.cs" />
-    <Compile Include="InputForms\RadioButtonsDemoUnitTestPO.cs" />
-    <Compile Include="InputForms\SimpleFormDemoUnitTest.cs" />
-    <Compile Include="InputForms\SimpleFormDemoUnitTestPO.cs" />
+    <Compile Include="InputForms\CheckboxDemo\CheckboxDemoUnitTestPO.cs" />
+    <Compile Include="InputForms\CheckboxDemo\CheckboxDemoUnitTest.cs" />
+    <Compile Include="InputForms\RadioButtonsDemo\RadioButtonsDemoUnitTest.cs" />
+    <Compile Include="InputForms\RadioButtonsDemo\RadioButtonsDemoUnitTestPO.cs" />
+    <Compile Include="InputForms\SelectDropdownList\SelectDropdownListUnitTest.cs" />
+    <Compile Include="InputForms\SelectDropdownList\SelectDropdownListUnitTestPO.cs" />
+    <Compile Include="InputForms\SimpleFormDemo\SimpleFormDemoUnitTest.cs" />
+    <Compile Include="InputForms\SimpleFormDemo\SimpleFormDemoUnitTestPO.cs" />
     <Compile Include="UnitTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestBasePO.cs" />
@@ -73,6 +75,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
