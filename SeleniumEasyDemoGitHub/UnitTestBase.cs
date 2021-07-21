@@ -34,20 +34,34 @@ namespace SeleniumEasyDemo
         {
             driver.Quit();
         }
+        /// <summary>
+        /// Method for verifying webelement list displayed and text matching with string list
+        /// </summary>
+        /// <param name="webElement"></param>
+        /// <param name="stringElement"></param>
         public void VerifyElementList(List<IWebElement> webElement, List<string> stringElement)
         {
             var isEachElementDisplayed = webElement.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
             Assert.IsTrue(isEachElementDisplayed.Displayed, $"{nameof(isEachElementDisplayed)} was not displayed");
             CompareWebElementListToStringList(webElement, stringElement);
-
-
         }
+        /// <summary>
+        /// Method for verifying webelement collection displayed and text matching with string list
+        /// </summary>
+        /// <param name="webElement"></param>
+        /// <param name="stringElement"></param>
         public void VerifyElementCollection(ReadOnlyCollection<IWebElement> webElement, List<string> stringElement)
         {
             var isEachElementDisplayed = webElement.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : null);
             Assert.IsTrue(isEachElementDisplayed.Displayed, $"{nameof(isEachElementDisplayed)} was not displayed.");
             CompareWebElementCollectionToStringList(webElement, stringElement);
         }
+        /// <summary>
+        /// Method for comparing collection of webelement from string list
+        /// </summary>
+        /// <param name="webElement"></param>
+        /// <param name="stringElement"></param>
+
         public void CompareWebElementCollectionToStringList(ReadOnlyCollection<IWebElement> webElement, List<string> stringElement)
         {
             int i = 0;
@@ -59,17 +73,26 @@ namespace SeleniumEasyDemo
 
             }
         }
+        /// <summary>
+        /// Method for comparing webelement list from string list
+        /// </summary>
+        /// <param name="webElement"></param>
+        /// <param name="stringElement"></param>
         public void CompareWebElementListToStringList(List<IWebElement> webElement, List<string> stringElement)
         {
             int i = 0;
             foreach (string item in stringElement)
             {
                 Assert.IsTrue(item.Equals(webElement[i].Text.Trim()), $"{nameof(CompareWebElementListToStringList)}failed" +
-                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'.");
+                    $"--details: \nExpected list item '{item}', but found '{webElement[i].Text.Trim()}'");
                 i++;
             }
         }
-
+        /// <summary>
+        /// 
+        /// Method for selecting menu from menu nav bar
+        /// </summary>
+        /// <param name="menuName"></param>
         public void MenuList(string menuName)
         {
             unitTestBasePO = new UnitTestBasePO(driver);
@@ -89,10 +112,13 @@ namespace SeleniumEasyDemo
                 {
                     item.Click();
                     break;
-
                 }
             }
         }
+        /// <summary>
+        ///  Method for closing Image popup
+        /// </summary>
+
         public void ImageCloseMethod(string menuName)
         {
             simpleFormDemoUnitTestPO = new SimpleFormDemoUnitTestPO(driver);
