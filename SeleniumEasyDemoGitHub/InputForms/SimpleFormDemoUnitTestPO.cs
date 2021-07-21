@@ -11,6 +11,7 @@ namespace SeleniumEasyDemo.InputForms
 
         }
         public SimpleFormDemoUnitTestPO() { }
+
         //SIngle Input Field
         public IWebElement SingleInputFieldHeading => _driver.FindElement(By.XPath("//div[@class='panel-heading' and text()='Single Input Field']"));
         public IWebElement ImageDarkener => _driver.FindElement(By.XPath("//div[@id='image-darkener']"));

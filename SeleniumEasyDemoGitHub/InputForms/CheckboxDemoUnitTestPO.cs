@@ -28,7 +28,7 @@ namespace SeleniumEasyDemoGitHub.InputForms
         public ReadOnlyCollection<IWebElement> CheckboxOptions => _driver.FindElements(By.XPath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div/label"));
         public IWebElement CheckAllButton => _driver.FindElement(By.XPath("//input[@id='check1' and @value='Check All']"));
         public IWebElement UnCheckAllButton => _driver.FindElement(By.XPath("//input[@id='check1' and @value='Uncheck All']"));
-
+       
 
     }
 }
