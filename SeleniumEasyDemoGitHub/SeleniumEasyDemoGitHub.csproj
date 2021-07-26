@@ -66,6 +66,8 @@
     <Compile Include="InputForms\CheckboxDemo\CheckboxDemoUnitTest.cs" />
     <Compile Include="InputForms\Input Form Submit\InputFormSubmitUnitTest.cs" />
     <Compile Include="InputForms\Input Form Submit\InputFormSubmitUnitTestPO.cs" />
+    <Compile Include="InputForms\JQuerySelectDropdown\JQuerySelectDropdownUnitTest.cs" />
+    <Compile Include="InputForms\JQuerySelectDropdown\JQuerySelectDropdownUnitTestPO.cs" />
     <Compile Include="InputForms\RadioButtonsDemo\RadioButtonsDemoUnitTest.cs" />
     <Compile Include="InputForms\RadioButtonsDemo\RadioButtonsDemoUnitTestPO.cs" />
     <Compile Include="InputForms\SelectDropdownList\SelectDropdownListUnitTest.cs" />
