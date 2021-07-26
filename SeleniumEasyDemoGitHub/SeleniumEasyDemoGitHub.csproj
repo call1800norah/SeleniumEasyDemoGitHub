@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputForms\Ajax Form Submit\AjaxFormSubmitUnitTest.cs" />
+    <Compile Include="InputForms\Ajax Form Submit\AjaxFormSubmitUnitTestPO.cs" />
     <Compile Include="InputForms\CheckboxDemo\CheckboxDemoUnitTestPO.cs" />
     <Compile Include="InputForms\CheckboxDemo\CheckboxDemoUnitTest.cs" />
     <Compile Include="InputForms\Input Form Submit\InputFormSubmitUnitTest.cs" />

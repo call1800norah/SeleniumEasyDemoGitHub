@@ -124,6 +124,7 @@ namespace SeleniumEasyDemo
             simpleFormDemoUnitTestPO = new SimpleFormDemoUnitTestPO(driver);
             int timeoutInSeconds = 30;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+            wait.Until(e=>simpleFormDemoUnitTestPO.ImageDarkener.Displayed);
 
             if ((timeoutInSeconds <= 30) && (simpleFormDemoUnitTestPO.ImageDarkener.Displayed))
             {
