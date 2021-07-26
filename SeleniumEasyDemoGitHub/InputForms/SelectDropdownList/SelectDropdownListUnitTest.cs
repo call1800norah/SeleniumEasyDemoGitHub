@@ -46,5 +46,32 @@ namespace SeleniumEasyDemoGitHub.InputForms
 
             } while (randomOption.Equals(0));                    
         }
+        [TestMethod]
+        public void MultiSelectListDemoUnitTest()
+        {
+            //Method for closing Image popup
+            ImageCloseMethod("Select Dropdown List");
+
+            selectDropdown = new SelectDropdownListUnitTestPO(driver);
+
+            var headerAndParagraphWebElementList = new List<IWebElement>() { selectDropdown.MultiSelectListDemoHeader, selectDropdown.MultiSelectListParagraph };
+            var headerAndParagraphStringList = new List<string>() { "Multi Select List Demo",
+                "By clicking on the buttons, you can get value from the list which will display just below the buttons" };
+            VerifyElementList(headerAndParagraphWebElementList, headerAndParagraphStringList);
+
+            var statesList = new List<string>() { "California", "Florida", "New Jersey", "New York", "Ohio", "Texas", "Pennsylvania", "Washington" };
+            VerifyElementCollection(selectDropdown.MultiSelectOptions, statesList);
+
+            random = new Random();
+            var randomOption = random.Next(selectDropdown.MultiSelectOptions.Count);
+            var randomChosenOption = selectDropdown.MultiSelectOptions[randomOption];
+            randomChosenOption.Click();
+            selectDropdown.FirstSelectedButton.Click();
+            
+            Assert.IsTrue(selectDropdown.SelectedOptionResult.Text.Trim().Contains(randomChosenOption.Text.Trim()));
+            selectDropdown.GetAllSelectedButton.Click();
+            Assert.IsTrue(selectDropdown.SelectedOptionResult.Text.Trim().Contains(randomChosenOption.Text.Trim()));
+
+        }
     }
 }
