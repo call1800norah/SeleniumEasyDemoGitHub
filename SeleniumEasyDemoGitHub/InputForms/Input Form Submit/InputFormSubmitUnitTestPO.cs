@@ -38,10 +38,11 @@ namespace SeleniumEasyDemoGitHub.InputForms.Input_Form_Submit
         public IWebElement InputCity => _driver.FindElement(By.XPath("//input[@name='city']"));
         public IWebElement SelectState => _driver.FindElement(By.XPath("//select[@name='state']"));
         public ReadOnlyCollection<IWebElement> SelectStateOptions => _driver.FindElements(By.XPath("//select[@name='state']/option"));
+        public IWebElement SelectedState => _driver.FindElement(By.XPath("//select[@class='form-control selectpicker']"));
         public IWebElement InputZip => _driver.FindElement(By.XPath("//input[@name='zip']"));
         public IWebElement InputWebsite => _driver.FindElement(By.XPath("//input[@name='website']"));
         public ReadOnlyCollection<IWebElement> InputDoYouHaveHosting => _driver.FindElements(By.XPath("//input[@name='hosting']"));
-        public IWebElement InputComment => _driver.FindElement(By.XPath("//input[@name='comment']"));
+        public IWebElement InputComment => _driver.FindElement(By.XPath("//textarea[@name='comment']"));
         public IWebElement SubmitButton => _driver.FindElement(By.XPath("//button[@class='btn btn-default']"));
 
 
